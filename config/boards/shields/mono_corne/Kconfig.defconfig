@@ -1,0 +1,6 @@
+if MONO_CORNE
+
+config ZMK_KEYBOARD_NAME
+    default "mono_corne"
+
+endif
