@@ -77,7 +77,7 @@
    &trans &kp Q &kp W &lt NAV E &kp R &kp T                     &kp Y &kp U &kp I &kp O &kp P &trans
    &trans &bhm LCTRL A &kp S &bhm LSHFT D &bhm LGUI F &kp G     &kp H &bhm RGUI J &bhm RSFT K &kp L &bhm RCTRL APOS &trans
    &trans &bhm LALT Z  &kp X &kp C &lt ARROWS V                 &kp B &lt BLUETOOTH N &lt MEDIA M &kp COMMA &kp DOT &bhm RALT FSLH  &trans
-                      &trans &lt SYMBOLS ESC &kp RSHFT          &spaceb &lt NUMBERS RET &trans
+   &trans &trans &trans &trans &lt SYMBOLS ESC &kp RSHFT        &spaceb &lt NUMBERS RET &trans &trans &trans &trans
                         >;
                 };
 
