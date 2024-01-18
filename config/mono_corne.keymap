@@ -77,6 +77,22 @@
                         bindings = <&ht_tp HYP SPACE>, <&ht_tp DEL BSPC>;
                         mods = <(MOD_RSFT)>;
                 };
+
+                lsb: left_shift_bracket {
+                        compatible = "zmk,behavior-mod-morph";
+                        label = "LEFT_SHIFT_BRACKET";
+                        #binding-cells = <0>;
+                        bindings = <&kp LBKT>, <&kp LBRC>;
+                        mods = <(MOD_LSFT)>;
+                };
+
+                rsb: right_shift_bracket {
+                        compatible = "zmk,behavior-mod-morph";
+                        label = "RIGHT_SHIFT_BRACKET";
+                        #binding-cells = <0>;
+                        bindings = <&kp RBKT>, <&kp RBRC>;
+                        mods = <(MOD_LSFT)>;
+                };
         };
         
         keymap {
@@ -94,7 +110,7 @@
                 symbol_layer {
                         bindings = <
 &trans &trans &trans &trans &trans &trans       &kp BSLH    &kp PIPE    &kp LPAR &kp RPAR &kp GRAVE &trans
-&trans &trans &trans &trans &trans &trans       &kp MINUS &kp EQUAL &ht_tp LBKT LBRC &ht_tp RBKT RBRC &kp SEMI  &trans
+&trans &trans &trans &trans &trans &trans       &kp MINUS &kp EQUAL &lsb &rsb &kp SEMI  &trans
 &trans &trans &trans &trans &trans &trans       &trans    &trans    &kp LT   &kp GT   &trans    &trans
 &trans &trans &trans &trans &trans &trans       &ht_tp DEL BSPC &kp TAB &trans &trans &trans &trans
                         >;
