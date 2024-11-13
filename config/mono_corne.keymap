@@ -17,7 +17,6 @@
 #define MEDIA 5
 #define BLUETOOTH 6
 
-
 // Keycode Definitions
 #define HYP LS(LC(LA(LGUI)))
 #define HYPER(key) LS(LC(LA(LG(key))))
@@ -83,7 +82,7 @@
                         compatible = "zmk,behavior-mod-morph";
                         label = "LEFT_SHIFT_BRACKET";
                         #binding-cells = <0>;
-                        bindings = <&kp LBKT>, <&kp LBRC>;
+                        bindings =  <&kp LBRC>, <&kp LBKT>;
                         mods = <(MOD_LSFT)>;
                 };
 
@@ -91,7 +90,7 @@
                         compatible = "zmk,behavior-mod-morph";
                         label = "RIGHT_SHIFT_BRACKET";
                         #binding-cells = <0>;
-                        bindings = <&kp RBKT>, <&kp RBRC>;
+                        bindings = <&kp RBRC>, <&kp RBKT>;
                         mods = <(MOD_LSFT)>;
                 };
         };
