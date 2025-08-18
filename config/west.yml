@@ -4,10 +4,20 @@ manifest:
       url-base: https://github.com/zmkfirmware
     - name: divsmith
       url-base: https://github.com/divsmith
+    - name: rschenk
+      url-base: https://github.com/rschenk
+    - name: nmunnich
+      url-base: https://github.com/nmunnich
   projects:
     - name: zmk
-      remote: divsmith
-      revision: rp2040_zero
-      import: app/west.yml
+      remote: zmkfirmware
+      revision: main
+      import: app/west.yml 
+    - name: zmk-component-raytac-dongle
+      remote: rschenk
+      revision: main
+    - name: zmk-component-rp2040-zero
+      remote: nmunnich
+      revision: main
   self:
     path: config
