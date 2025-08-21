@@ -9,14 +9,6 @@
 #include <layouts/foostan/corne/5column.dtsi>
 #include <layouts/foostan/corne/6column.dtsi>
 
-&foostan_corne_6col_layout {
-    transform = <&default_transform>;
-};
-
-&foostan_corne_5col_layout {
-    transform = <&five_column_transform>;
-};
-
 / {
     chosen {
         zmk,kscan = &mock_kscan;
@@ -55,25 +47,18 @@ RC(2,1) RC(2,2) RC(2,3) RC(2,4) RC(2,5)  RC(2,6) RC(2,7) RC(2,8) RC(2,9) RC(2,10
         >;
     };
 
-    /*
-        kscan0: kscan {
-        compatible = "zmk,kscan-gpio-direct";
-
-        input-gpios
-            = <&xiao_d 0 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
-            , <&xiao_d 1 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
-            , <&xiao_d 2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
-            , <&xiao_d 3 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
-            ;
+    &foostan_corne_6col_layout {
+        transform = <&default_transform>;
     };
-    */
+
+    &foostan_corne_5col_layout {
+        transform = <&five_column_transform>;
+    };
 
     mock_kscan: kscan_0 {
         compatible = "zmk,kscan-mock";
-        // wakeup-source;
         columns = <0>;
         rows = <0>;
         events = <0>;
     };
-    // TODO: per-key RGB node(s)?
 };
