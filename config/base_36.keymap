@@ -40,16 +40,6 @@
 
 / {
 	behaviors {
-		ht_tp: tap_preferred_thumbkeys {
-			compatible = "zmk,behavior-hold-tap";
-			label = "TAP_PREFERRED_THUMBKEYS";
-			#binding-cells = <2>;
-			tapping-term-ms = <150>;
-			quick-tap-ms = <0>;
-			flavor = "tap-preferred";
-			bindings = <&kp>, <&kp>;
-		};
-		
 		spaceb: space_backspace {
 			compatible = "zmk,behavior-mod-morph";
 			label = "SPACE_BACKSPACE";
@@ -74,6 +64,13 @@
 			mods = <(MOD_LSFT)>;
 		};
 	};
+	
+	// Keymap Template
+	//
+	// | SW2  | SW3  | SW4  | SW5  | SW6  |   | SW6  | SW5  | SW4  | SW3  | SW2  |
+	// | SW8  | SW9  | SW10 | SW11 | SW12 |   | SW12 | SW11 | SW10 | SW9  | SW8  |
+	// | SW14 | SW15 | SW16 | SW17 | SW18 |   | SW18 | SW17 | SW16 | SW15 | SW14 |
+	//               | SW19 | SW20 | SW21 |   | SW21 | SW20 | SW19 |
 	
 	keymap {
 		compatible = "zmk,keymap";
@@ -113,13 +110,13 @@
 			&trans &trans &trans       &trans &trans &trans
 			>;
 		};
-	
+		
 		nav_layer {
 			bindings = <
-			&trans &trans &trans &trans &trans       &trans &trans &kp LS(LG(LBRC)) &kp LS(LG(RBRC)) &trans
-			&trans &trans &trans &trans &trans       &trans &kp HYPER(LEFT) &kp MEH(LEFT) &kp MEH(RIGHT) &kp HYPER(RIGHT)
-			&trans &trans &trans &trans &trans       &trans &kp LC(LEFT) &kp HYPER(F13) &kp HYPER(F14) &kp LC(RIGHT)
-			&trans &trans &trans       &trans &kp MEH(RET) &trans
+			&trans &trans &trans &trans &trans       &trans &trans          &kp LS(LG(LBRC)) &kp LS(LG(RBRC)) &trans
+			&trans &trans &trans &trans &trans       &trans &kp HYPER(LEFT) &kp MEH(LEFT)    &kp MEH(RIGHT)   &kp HYPER(RIGHT)
+			&trans &trans &trans &trans &trans       &trans &kp LC(LEFT)    &kp HYPER(F13)   &kp HYPER(F14)  &kp LC(RIGHT)
+			&trans &trans &trans       &trans &kp MEH(RET)    &trans
 			>;
 		};
 		

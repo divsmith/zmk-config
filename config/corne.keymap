@@ -2,6 +2,17 @@
 
 / {
 	behaviors {
+		ht_tp: tap_preferred_thumbkeys {
+			compatible = "zmk,behavior-hold-tap";
+			label = "TAP_PREFERRED_THUMBKEYS";
+			#binding-cells = <2>;
+			tapping-term-ms = <200>;
+			quick-tap-ms = <200>;
+            require-prior-idle-ms = <125>;
+			flavor = "tap-preferred";
+			bindings = <&kp>, <&kp>;
+		};
+
         bhm: balanced_homerow_mods {
 			compatible = "zmk,behavior-hold-tap";
 			label = "HOMEROW_MODS";
