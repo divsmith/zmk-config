@@ -27,7 +27,8 @@
 			label = "LAYER_TAP_FAST";
 			#binding-cells = <2>;
 			tapping-term-ms = <125>;
-			quick-tap-ms = <0>;
+			quick-tap-ms = <125>;
+            require-prior-idle-ms = <125>;
 			flavor = "tap-preferred";
 			bindings = <&mo>, <&kp>;
 		};
@@ -36,9 +37,8 @@
             compatible = "zmk,behavior-hold-tap";
             label = "ESCAPE_TAP";
             #binding-cells = <2>;
-            tapping-term-ms = <125>;
-            quick-tap-ms = <0>;
-            flavor = "tap-preferred";
+            tapping-term-ms = <150>;
+            flavor = "hold-preferred";
             bindings = <&mo>, <&kp>;
         };
 	};
