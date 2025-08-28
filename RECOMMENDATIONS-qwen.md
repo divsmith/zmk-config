@@ -227,7 +227,7 @@ chmod +x .git/hooks/pre-commit
 ```
 
 #### Editor Integration for Real-time Formatting
-Configure your editor to automatically format on save:
+Configure your editor to automatically format on save with custom grid formatting:
 
 **VS Code settings.json**:
 ```json
@@ -247,6 +247,51 @@ Configure your editor to automatically format on save:
     "editor.rulers": [100]
 }
 ```
+
+**VS Code Tasks for Custom Formatting on Save**:
+Create `.vscode/tasks.json` to run custom formatting:
+
+```json
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "format-keymap",
+            "type": "shell",
+            "command": "python3",
+            "args": ["scripts/format_keymap.py", "${file}"],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "silent",
+                "focus": false,
+                "panel": "shared"
+            },
+            "options": {
+                "cwd": "${workspaceFolder}"
+            }
+        }
+    ]
+}
+```
+
+**VS Code File Watcher for Automatic Formatting**:
+Install the "Trigger Task on Save" extension and configure `.vscode/settings.json`:
+
+```json
+{
+    "files.associations": {
+        "*.keymap": "dts",
+        "*.dtsi": "dts"
+    },
+    "triggerTaskOnSave.tasks": {
+        "format-keymap": ["**/*.keymap", "**/*.dtsi"]
+    },
+    "triggerTaskOnSave.showMessageOnSuccess": false
+}
+```
+
+This configuration will automatically trigger the custom keymap formatting script every time you save a `.keymap` or `.dtsi` file, ensuring your key bindings are always properly formatted in a grid pattern without any manual intervention.
 
 #### Validation Script
 Create a script to validate keymap syntax:
