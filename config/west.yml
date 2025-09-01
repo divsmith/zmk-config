@@ -8,6 +8,8 @@ manifest:
       url-base: https://github.com/rschenk
     - name: nmunnich
       url-base: https://github.com/nmunnich
+    - name: urob
+      url-base: https://github.com/urob
   projects:
     - name: zmk
       remote: zmkfirmware
@@ -18,6 +20,9 @@ manifest:
       revision: main
     - name: zmk-component-rp2040-zero
       remote: nmunnich
+      revision: main
+    - name: zmk-adaptive-key
+      remote: urob
       revision: main
   self:
     path: config

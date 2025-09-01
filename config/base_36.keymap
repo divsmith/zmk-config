@@ -63,6 +63,15 @@
 			bindings = <&kp RBRC>, <&kp RBKT>;
 			mods = <(MOD_LSFT)>;
 		};
+
+        ak_comma: adaptive_comma { // double-tap comma = caps_word
+            compatible = "zmk,behavior-adaptive-key";
+            label = "Adaptive Comma";
+            #binding-cells = <0>;
+            bindings = <&kp COMMA>;
+
+            ak_comma_cap { trigger-keys = <COMMA>; max-prior-idle-ms = <200>; bindings = <&kp BSPC &caps_word>; };
+        };
 	};
 	
 	// Keymap Template
@@ -79,7 +88,7 @@
 			bindings = <
 			&kp Q &kp W &ltf NAV E &kp R &kp T                     &kp Y &kp U &bhm RC(RALT) I &kp O &kp P
 			&bhm LCTRL A &kp S &bhm LSHFT D &bhm LGUI F &kp G     &kp H &bhm RGUI J &bhm RSFT K &kp L &bhm RCTRL APOS
-			&bhm LALT Z  &kp X &kp C &ltf ARROWS V                 &kp B &lt BLUETOOTH N &lt MEDIA M &kp COMMA &kp DOT &bhm RALT FSLH
+			&bhm LALT Z  &kp X &kp C &ltf ARROWS V                 &kp B &lt BLUETOOTH N &lt MEDIA M &ak_comma &kp DOT &bhm RALT FSLH
 			&trans &escTap SYMBOLS ESC &kp RSHFT        &spaceb &ltf NUMBERS RET &trans
 			>;
 		};
