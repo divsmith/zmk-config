@@ -1,0 +1,22 @@
+/*
+ * Symbols layer definitions
+ *
+ * This file contains the symbol layer bindings.
+ */
+
+symbol_layer {
+  display - name = "Symbols";
+  bindings =
+      <&trans & trans & trans & trans & trans & kp & kp & kp & kp & kp & trans &
+       trans & trans & trans & trans & kp & kp & lsb & rsb & kp> |
+      |
+      //`---------------------------+-------------------------'
+      //`---------------------------+-------------------------'
+      &trans & trans & trans & trans & trans & trans & trans & kp LT & kp GT &
+          trans //,---------------------+-----------------------.
+                //,----------------------+--------------------. |     |     | |
+                //| DEL | TAB |     |
+                //`-------------------------------------------'
+                //`------------------------------------------'
+          & trans & trans & trans & ht_tp DEL BSPC & kp TAB & trans > ;
+};

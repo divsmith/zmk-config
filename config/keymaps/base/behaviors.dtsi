@@ -1,7 +1,14 @@
-#include "base_36.keymap"
+/*
+ * Base behaviors for ZMK keymaps
+ *
+ * This file defines common behaviors used across different keyboards.
+ */
+
+#include <dt-bindings/zmk/keys.h>
 
 / {
   behaviors {
+  // Tap preferred hold-tap for thumb keys
   ht_tp:
     tap_preferred_thumbkeys {
       compatible = "zmk,behavior-hold-tap";
@@ -14,6 +21,8 @@
       bindings = <&kp>, <&kp>;
     };
 
+  // Balanced hold-tap for homerow mods
+  // Flavor balanced provides a good compromise between hold and tap preferences
   bhm:
     balanced_homerow_mods {
       compatible = "zmk,behavior-hold-tap";
@@ -25,6 +34,7 @@
       bindings = <&kp>, <&kp>;
     };
 
+  // Fast layer tap behavior
   ltf:
     layer_tap_fast {
       compatible = "zmk,behavior-hold-tap";
@@ -37,6 +47,7 @@
       bindings = <&mo>, <&kp>;
     };
 
+  // Escape tap behavior
   escTap:
     escapeTap {
       compatible = "zmk,behavior-hold-tap";

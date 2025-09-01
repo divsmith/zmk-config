@@ -1,0 +1,8 @@
+/*\n * Media layer definitions\n * \n * This file contains the media
+ * layer bindings.\n */\n\nmedia_layer {
+  \n display - name = \"Media\";\n    bindings = <\
+        &trans       &kp          &kp          &kp          &trans       &trans       &trans       &trans       &trans       &trans      \
+        &trans       &kp          &kp          &kp          &trans       &trans       &trans       &trans       &trans       &trans      \
+        &trans       &trans       &trans       &trans       &trans       &trans       &trans       &trans       &trans       &trans      \
+        &trans       &trans       &trans       &trans       &trans       &trans      \
+    >;\n};

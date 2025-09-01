@@ -1,7 +1,9 @@
 /*
- * Copyright (c) 2020 The ZMK Contributors
+ * Base keymap for ZMK keyboards
  *
- * SPDX-License-Identifier: MIT
+ * This file defines the base layer and common layers used across different
+ * keyboards. It includes homerow mods, layer tap behaviors, and custom key
+ * combinations.
  */
 
 #include <behaviors.dtsi>
@@ -27,18 +29,6 @@
 };
 
 / {
-  combos {
-    compatible = "zmk,combos";
-
-    combo_caps_word {
-      timeout - ms = <50>;
-      key - positions = <15 20>;
-      bindings = <&caps_word>;
-    };
-  };
-};
-
-/ {
   behaviors {
   spaceb:
     space_backspace {
@@ -54,7 +44,7 @@
       compatible = "zmk,behavior-mod-morph";
       label = "LEFT_SHIFT_BRACKET";
 #binding - cells = < 0>;
-      bindings = <&kp LBRC>, <&kp LBKT>;
+      bindings = <&kp>, <&kp LBKT>;
       mods = <(MOD_LSFT)>;
     };
 
@@ -79,21 +69,29 @@
     compatible = "zmk,keymap";
 
     default_layer {
-      bindings = <&kp & kp & ltf & kp & kp & kp & kp & bhm & kp & kp & bhm &
-                  kp & bhm & bhm & kp & kp & bhm & bhm & kp & bhm & bhm & kp &
-                  kp & ltf & kp & lt & lt & kp & kp & bhm & trans & escTap &
-                  kp & spaceb & ltf & trans>;
+      display - name = "Base";
+      bindings = <&kp>;
     };
 
     symbol_layer {
+      display - name = "Symbols";
       bindings =
           <&trans & trans & trans & trans & trans & kp & kp & kp & kp & kp &
-           trans & trans & trans & trans & trans & kp & kp & lsb & rsb & kp &
-           trans & trans & trans & trans & trans & trans & trans & kp & kp &
-           trans & trans & trans & trans & ht_tp & kp & trans>;
+           trans & trans & trans & trans & trans & kp & kp & lsb & rsb & kp> |
+          |
+          //`---------------------------+-------------------------'
+          //`---------------------------+-------------------------'
+          &trans & trans & trans & trans & trans & trans & trans & kp LT &
+              kp GT & trans //,---------------------+-----------------------.
+                            //,----------------------+--------------------. | |
+                            //|     |           | DEL | TAB |     |
+                            //`-------------------------------------------'
+                            //`------------------------------------------'
+              & trans & trans & trans & ht_tp DEL BSPC & kp TAB & trans > ;
     };
 
     number_layer {
+      display - name = "Numbers";
       bindings =
           <&trans & kp & kp & kp & trans & trans & trans & trans & trans &
            trans & trans & kp & kp & kp & trans & trans & trans & trans &
@@ -102,14 +100,12 @@
     };
 
     arrow_layer {
-      bindings = <&trans & trans & trans & trans & trans & trans & trans &
-                  trans & trans & trans & trans & trans & trans & trans &
-                  trans & kp & kp & kp & kp & trans & trans & trans & trans &
-                  trans & trans & trans & trans & trans & trans & trans &
-                  trans & trans & trans & trans & trans & trans>;
+      display - name = "Arrows";
+      bindings = <&trans>;
     };
 
     nav_layer {
+      display - name = "Navigation";
       bindings =
           <&trans & trans & trans & trans & trans & trans & trans & kp & kp &
            trans & trans & trans & trans & trans & trans & trans & kp & kp &
@@ -118,22 +114,17 @@
     };
 
     media_layer {
-      bindings = <&trans & kp & kp & kp & trans & trans & trans & trans &
-                  trans & trans & trans & kp & kp & kp & trans & trans & trans &
-                  trans & trans & trans & trans & trans & trans & trans &
-                  trans & trans & trans & trans & trans & trans & trans &
-                  trans & trans & trans & trans & trans>;
+      display - name = "Media";
+      bindings = <&trans>;
     };
 
     bluetooth_layer {
-      bindings = <&bt & bt & bt & bt & bt & trans & trans & trans & trans &
-                  trans & trans & trans & trans & trans & trans & trans &
-                  trans & trans & trans & trans & bt & trans & trans & trans &
-                  trans & trans & bootloader & trans & trans & trans & trans &
-                  trans & trans & trans & trans & trans>;
+      display - name = "Bluetooth";
+      bindings = <&bt>;
     };
 
     empty_layer {
+      display - name = "Empty";
       bindings =
           <&trans & trans & trans & trans & trans & trans & trans & trans &
            trans & trans & trans & trans & trans & trans & trans & trans &

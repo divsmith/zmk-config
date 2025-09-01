@@ -1,0 +1,32 @@
+name: 'Keymap'
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'config/**.keymap'
+
+jobs:
+  draw:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout'
+        uses: actions/checkout@v3
+
+      - name: 'Setup Python'
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: 'Install keymap-drawer'
+        run: pip install keymap-drawer
+
+      - name: 'Draw keymap'
+        run: |
+          keymap parse config/keymaps/base/base.keymap | keymap draw > keymap.svg
+
+      - name: 'Commit keymap'
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: 'Update keymap diagram'
+          file_pattern: 'keymap.svg'

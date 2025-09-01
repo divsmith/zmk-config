@@ -1,0 +1,35 @@
+/*
+ * Corne keyboard keymap
+ *
+ * This keymap defines Corne-specific configurations that extend the base
+ * keymap.
+ */
+
+#include "base.keymap"
+
+/ {
+  behaviors {
+  ht_tp:
+    tap_preferred_thumbkeys {
+      tapping - term - ms = <200>;
+      quick - tap - ms = <200>;
+      require - prior - idle - ms = <125>;
+    };
+
+  bhm:
+    balanced_homerow_mods {
+      tapping - term - ms = <200>;
+      quick - tap - ms = <0>;
+    };
+
+  ltf:
+    layer_tap_fast {
+      tapping - term - ms = <200>;
+      quick - tap - ms = <200>;
+      require - prior - idle - ms = <125>;
+    };
+
+  escTap:
+    escapeTap { tapping - term - ms = <200>; };
+  };
+};

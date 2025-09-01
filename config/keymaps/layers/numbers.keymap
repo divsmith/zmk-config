@@ -1,0 +1,14 @@
+/*
+ * Numbers layer definitions
+ *
+ * This file contains the number layer bindings.
+ */
+
+number_layer {
+  display - name = "Numbers";
+  bindings =
+      <&trans & kp & kp & kp & trans & trans & trans & trans & trans & trans &
+       trans & kp & kp & kp & trans & trans & trans & trans & trans & trans &
+       trans & kp & kp & kp & trans & trans & trans & trans & trans & trans &
+       trans & kp & trans & trans & trans & trans>;
+};
