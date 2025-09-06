@@ -72,6 +72,17 @@
 
             ak_comma_cap { trigger-keys = <COMMA>; max-prior-idle-ms = <200>; bindings = <&kp BSPC &caps_word>; };
         };
+
+		ltf: layer_tap_fast {
+			compatible = "zmk,behavior-hold-tap";
+			label = "LAYER_TAP_FAST";
+			#binding-cells = <2>;
+			tapping-term-ms = <200>;
+			quick-tap-ms = <200>;
+            require-prior-idle-ms = <125>;
+			flavor = "tap-preferred";
+			bindings = <&mo>, <&kp>;
+		};
 	};
 	
 	// Keymap Template
